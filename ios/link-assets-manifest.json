@@ -1,0 +1,25 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Hanuman-Black.ttf",
+      "sha1": "711312351ac37b7d20d6605b922a1263852e368a"
+    },
+    {
+      "path": "src/assets/fonts/Hanuman-Bold.ttf",
+      "sha1": "26c804ded403e4ef89a5baba89077bb59075ebde"
+    },
+    {
+      "path": "src/assets/fonts/Hanuman-Light.ttf",
+      "sha1": "bea7d4a1c0a78c31bb71b01039af19d3529dae38"
+    },
+    {
+      "path": "src/assets/fonts/Hanuman-Regular.ttf",
+      "sha1": "714a490afe6590ebfa6eec72c1874b68b4619ae7"
+    },
+    {
+      "path": "src/assets/fonts/Hanuman-Thin.ttf",
+      "sha1": "d1058bdeabe27bcf77db7a7e25b4dfc851502c1c"
+    }
+  ]
+}
