@@ -10,13 +10,10 @@ import {
   SafeAreaView,
   StatusBar,
   StyleSheet,
-  Text,
   useColorScheme,
-  View,
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import Welcome from './src/screens/welcome/Welcome';
 import AppNavigation from './src/routers/AppNavigation';
 
 function App(): React.JSX.Element {

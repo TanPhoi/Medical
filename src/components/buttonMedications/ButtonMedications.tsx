@@ -1,7 +1,5 @@
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React from 'react';
-import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
-import {RootStateParamsList} from '../../routers/AppNavigation';
+import {Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 
 type ButtonMedicationsProps = {
   title: string;

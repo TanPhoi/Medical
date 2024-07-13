@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
+import {Text, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
 
 type HourItem = {
   key: string;

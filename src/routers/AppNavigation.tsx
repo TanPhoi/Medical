@@ -10,6 +10,11 @@ import MyMedications from '../screens/myMedications/MyMedications';
 import MedicationDetail from '../screens/medicationDetail/MedicationDetail';
 import {ImageSourcePropType} from 'react-native';
 import AppointmentsCalendar from '../screens/appointmentsCalendar/AppointmentsCalendar';
+import PersonalProfile from '../screens/personalProfile/PersonalProfile';
+import SearchResults from '../screens/searchResults/SearchResults';
+import DoctorDetail from '../screens/doctorDetail/DoctorDetail';
+import VideoCall from '../screens/videoCall/VideoCall';
+import Chat from '../screens/chat/Chat';
 const queryClient = new QueryClient();
 export type RootStateParamsList = {
   Welcome: undefined;
@@ -26,6 +31,23 @@ export type RootStateParamsList = {
     image: ImageSourcePropType;
   };
   AppointmentsCalendar: undefined;
+  PersonalProfile: undefined;
+  SearchResults: undefined;
+  DoctorDetail: {
+    image: ImageSourcePropType;
+    name: string;
+    desc: string;
+    rate: number;
+    patients: string;
+    about: string;
+  };
+  VideoCall: {
+    doctor: string;
+    appointmentType: string;
+  };
+  Chat: {
+    doctor: string;
+  };
 };
 const Stack = createNativeStackNavigator<RootStateParamsList>();
 const AppNavigation = (): React.JSX.Element => {
@@ -49,6 +71,11 @@ const AppNavigation = (): React.JSX.Element => {
             name="AppointmentsCalendar"
             component={AppointmentsCalendar}
           />
+          <Stack.Screen name="PersonalProfile" component={PersonalProfile} />
+          <Stack.Screen name="SearchResults" component={SearchResults} />
+          <Stack.Screen name="DoctorDetail" component={DoctorDetail} />
+          <Stack.Screen name="VideoCall" component={VideoCall} />
+          <Stack.Screen name="Chat" component={Chat} />
         </Stack.Navigator>
       </NavigationContainer>
     </QueryClientProvider>
