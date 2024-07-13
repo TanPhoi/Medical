@@ -1,4 +1,3 @@
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React from 'react';
 import {
   View,
@@ -6,7 +5,6 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
-  TextInput,
   FlatList,
 } from 'react-native';
 

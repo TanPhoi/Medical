@@ -62,6 +62,10 @@ const AppointmentBooking = ({
     navigation.goBack();
   };
 
+  const handleNextProfile = () => {
+    navigation.navigate('PersonalProfile');
+  };
+
   const handleSelectedDate = (
     dayOfWeek: string,
     month: string,
@@ -91,7 +95,11 @@ const AppointmentBooking = ({
 
   return (
     <View style={styles.container}>
-      <TabBar title={'Book your appointment'} onPress={handleBack} />
+      <TabBar
+        title={'Book your appointment'}
+        onPress={handleBack}
+        onPressUser={handleNextProfile}
+      />
 
       <FlatList
         data={['Appointment type', 'Select date', 'Select time']}

@@ -36,9 +36,17 @@ const MyMedications = ({navigation}: MyMedicationsProps): React.JSX.Element => {
     navigation.goBack();
   };
 
+  const handleNextProfile = () => {
+    navigation.navigate('PersonalProfile')
+  };
+
   return (
     <View style={styles.container}>
-      <TabBar title={'My medications'} onPress={handleBack} />
+      <TabBar
+        title={'My medications'}
+        onPress={handleBack}
+        onPressUser={handleNextProfile}
+      />
 
       <View style={styles.box}>
         {medicationRows.map((row, rowIndex) => (

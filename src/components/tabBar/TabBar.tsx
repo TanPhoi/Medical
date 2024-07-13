@@ -4,8 +4,13 @@ import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 type TabBarProps = {
   title: string;
   onPress: () => void;
+  onPressUser: () => void;
 };
-const TabBar = ({title, onPress}: TabBarProps): React.JSX.Element => {
+const TabBar = ({
+  title,
+  onPress,
+  onPressUser,
+}: TabBarProps): React.JSX.Element => {
   return (
     <View style={styles.container}>
       <View style={styles.box}>
@@ -18,10 +23,12 @@ const TabBar = ({title, onPress}: TabBarProps): React.JSX.Element => {
         <Text style={styles.txt}>{title}</Text>
       </View>
 
-      <Image
-        style={styles.icon}
-        source={require('../../assets/icon/ic_user.png')}
-      />
+      <TouchableOpacity onPress={onPressUser}>
+        <Image
+          style={styles.icon}
+          source={require('../../assets/icon/ic_user.jpg')}
+        />
+      </TouchableOpacity>
     </View>
   );
 };
@@ -37,6 +44,7 @@ const styles = StyleSheet.create({
   icon: {
     width: 24,
     height: 24,
+    borderRadius: 50,
   },
   txt: {
     color: '#1A2C48',

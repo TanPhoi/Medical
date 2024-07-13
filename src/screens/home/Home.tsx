@@ -6,7 +6,6 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
-  TextInput,
   FlatList,
   ActivityIndicator,
 } from 'react-native';
@@ -85,12 +84,24 @@ const Home = ({navigation}: HomeProps): React.JSX.Element => {
 
   const handleFindYourDoctor = () => {};
 
+  const handleSearchText = () => {
+    navigation.navigate('SearchResults');
+  };
+
   const handleItemMedications = (id: string, image: any, title: string) => {
-    console.log({id});
+    navigation.navigate('MedicationDetail', {image, title});
   };
 
   const handleItemDoctor = (id: string, image: any, title: string) => {
     navigation.navigate('AppointmentBooking', {id, image, title});
+  };
+
+  const handleNextProfile = () => {
+    navigation.navigate('PersonalProfile');
+  };
+
+  const handleOnItem = () => {
+    return;
   };
 
   const renderItem = ({item}: {item: any}) => {
@@ -107,27 +118,24 @@ const Home = ({navigation}: HomeProps): React.JSX.Element => {
             </Text>
             <Text style={styles.txtKit}>Kit</Text>
           </View>
-          <Image
-            style={styles.icon}
-            source={require('../../assets/icon/ic_user.png')}
-          />
+          <TouchableOpacity onPress={handleNextProfile}>
+            <Image
+              style={styles.iconUser}
+              source={require('../../assets/icon/ic_user.jpg')}
+            />
+          </TouchableOpacity>
         </View>
       );
     }
     if (item.type === 'search') {
       return (
-        <View style={styles.boxSearch}>
-          <TextInput
-            style={styles.input}
-            placeholder="Search doctors, appointments,..."
+        <TouchableOpacity style={styles.boxSearch} onPress={handleSearchText}>
+          <Text style={styles.input}>Search doctors, appointments,...</Text>
+          <Image
+            style={styles.icon}
+            source={require('../../assets/icon/ic_search.png')}
           />
-          <TouchableOpacity style={styles.iconContainer}>
-            <Image
-              style={styles.icon}
-              source={require('../../assets/icon/ic_search.png')}
-            />
-          </TouchableOpacity>
-        </View>
+        </TouchableOpacity>
       );
     }
     if (item.type === 'upcoming') {
@@ -139,7 +147,7 @@ const Home = ({navigation}: HomeProps): React.JSX.Element => {
           />
 
           <View style={styles.appointmentsListWrapper}>
-            <AppointmentsList isShow={false} />
+            <AppointmentsList isShow={false} onPress={handleOnItem} />
           </View>
         </>
       );
@@ -218,13 +226,20 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
+    padding: 14,
   },
   iconContainer: {
     padding: 4,
   },
-  icon: {
+  iconUser: {
     width: 24,
     height: 24,
+    borderRadius: 50,
+    resizeMode: 'contain',
+  },
+  icon: {
+    width: 18,
+    height: 18,
     resizeMode: 'contain',
   },
   boxTabBar: {

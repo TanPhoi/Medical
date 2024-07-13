@@ -6,7 +6,6 @@ import {
   Image,
   TouchableOpacity,
   Text,
-  Dimensions,
   Switch,
 } from 'react-native';
 import {RootStateParamsList} from '../../routers/AppNavigation';

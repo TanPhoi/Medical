@@ -6,12 +6,12 @@ import {
   Image,
   TouchableOpacity,
   FlatList,
-  ActivityIndicator,
 } from 'react-native';
 import {useGetMedKitMutation} from '../../queries/medKitQueries';
 
 type AppointmentsListProps = {
   isShow: boolean;
+  onPress: (doctor: string, appointmentType: string) => void;
 };
 
 type Appointments = {
@@ -24,9 +24,10 @@ type Appointments = {
 
 const AppointmentsList = ({
   isShow,
+  onPress,
 }: AppointmentsListProps): React.JSX.Element => {
   const useQuery = useGetMedKitMutation();
-  const {isLoading, data} = useQuery;
+  const {data} = useQuery;
 
   const capitalizeFirstLetter = (string: string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -39,7 +40,9 @@ const AppointmentsList = ({
     date,
     image,
   }: Appointments) => (
-    <TouchableOpacity style={styles.boxItem}>
+    <TouchableOpacity
+      style={styles.boxItem}
+      onPress={() => onPress(doctor, appointmentType)}>
       <View style={styles.boxTop}>
         <View style={styles.boxLeft}>
           <Image style={styles.icon} source={image} />
